@@ -1,45 +1,17 @@
-import { BeiAnGongAn } from '@/components/BeiAnGongAn'
-import BeiAnSite from '@/components/BeiAnSite'
-import PoweredBy from '@/components/PoweredBy'
-import { siteConfig } from '@/lib/config'
+import { BeiAnGongAn } from "@/components/BeiAnGongAn";
+import BeiAnSite from "@/components/BeiAnSite"; // 请确认该组件是 export default
+import { siteConfig } from "@/lib/config";
 
 const Footer = ({ title }) => {
-  const d = new Date()
-  const currentYear = d.getFullYear()
-  const since = siteConfig('SINCE')
+  const d = new Date();
+  const currentYear = d.getFullYear();
+  const since = siteConfig("SINCE");
   const copyrightDate =
-    parseInt(since) < currentYear ? since + '-' + currentYear : currentYear
-
+    parseInt(since) < currentYear ? since + "-" + currentYear : currentYear;
+  
   return (
-    <footer className='relative z-10 dark:bg-black flex-shrink-0 bg-hexo-light-gray justify-center text-center m-auto w-full leading-6  text-gray-600 dark:text-gray-100 text-sm p-6'>
-      {/* <DarkModeButton/> */}
-      <i className='fas fa-copyright' /> {`${copyrightDate}`}
-      <span>
-        <i className='mx-1 animate-pulse fas fa-heart' />
-        <a
-          href={siteConfig('LINK')}
-          className='underline font-bold  dark:text-gray-300 '>
-          {siteConfig('AUTHOR')}
-        </a>
-        .<br />
-        <BeiAnSite />
-        <BeiAnGongAn />
-        <span className='hidden busuanzi_container_site_pv'>
-          <i className='fas fa-eye' />
-          <span className='px-1 busuanzi_value_site_pv'> </span>
-        </span>
-        <span className='pl-2 hidden busuanzi_container_site_uv'>
-          <i className='fas fa-users' />
-          <span className='px-1 busuanzi_value_site_uv'> </span>
-        </span>
-        <h1 className='text-xs pt-4 text-light-400 dark:text-gray-400'>
-          {title} {siteConfig('BIO') && <>|</>} {siteConfig('BIO')}
-        </h1>
-        <PoweredBy className='justify-center' />
-      </span>
-      <br />
-    </footer>
-  )
-}
+    <footer className="relative z-10 w-full bg-white/95 dark:bg-gray-950/95 text-gray-600 dark:text-gray-100 text-sm p-8 border-t border-gray-200 dark:border-gray-800"> <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center text-center space-y-8"> {/* 1. 感性文案 */} <div className="w-full space-y-3 opacity-90"> <p className="font-serif italic text-base md:text-lg"> We spend our lives searching for an order that carries warmth. </p> <p className="tracking-[0.2em] font-light"> 我们终其一生，不过是在寻找一种有温度的秩序。 </p> <div className="pt-2 opacity-40 text-gray-400"> <p className="font-serif italic text-sm"> To find softness within the sharp, and wholeness within the incomplete. </p> <p className="tracking-[0.15em] font-light text-xs"> 在锐利中寻圆润，在缺失中见完整。 </p> </div> </div> {/* 2. 联系方式 */} <div className="w-full flex flex-col items-center space-y-4"> <div className="flex items-center justify-center space-x-3"> <span className="text-gray-400">联系</span> <span className="text-gray-300">/</span> <a href="mailto:i@kingsleyqi.com" className="underline font-mono"> i@kingsleyqi.com </a> </div> <div className="flex items-center justify-center space-x-3"> <span className="text-gray-400">哲思</span> <span className="text-gray-300">/</span> <a href="https://kingsleyqi.com" target="_blank" rel="noopener noreferrer" className="underline font-mono" > kingsleyqi.com </a> </div> <div className="flex items-center justify-center space-x-3"> <span className="text-gray-400">领域</span> <span className="text-gray-300">/</span> <a href="https://me.kingsleyqi.com" target="_blank" rel="noopener noreferrer" className="underline font-mono" > me.kingsleyqi.com </a> </div> </div> {/* 3. 版权区块 */} <div className="w-full pt-8 flex flex-col items-center"> {/* 版权行 */} <div className="flex items-center justify-center gap-x-2 w-full"> <span className="whitespace-nowrap">© {copyrightDate}</span> <i className="fas fa-heart text-red-500 animate-pulse text-[10px]" /> <span className="font-medium whitespace-nowrap">Kingsley Qi</span> <span id="busuanzi_container_site_pv" className="font-mono text-[10px] opacity-40 ml-1" > <span id="busuanzi_value_site_pv"></span> </span> </div> {/* Logo 存证信息 */} <div className="mt-4 flex flex-col items-center space-y-1 opacity-40 italic text-[10px] md:text-xs"> <span className="cursor-default">Logo Design by Kingsley Qi</span> <a href="https://www.kingsleyqi.cn/article/323b6394-e3f5-8021-b68e-d703de95af4c" target="_blank" rel="noopener noreferrer" className="font-mono tracking-tighter hover:text-blue-500 underline decoration-dotted" > TSA-11-20260315155929599 </a> </div> {/* BIO */} <div className="mt-6 font-bold tracking-[0.4em] text-xs uppercase opacity-80 w-full text-center"> 架构师 · 旅行家 · 人生体验家 </div> {/* 备案 */} <div className="mt-4 flex flex-wrap justify-center gap-4 opacity-60 text-[10px]"> <BeiAnSite /> <BeiAnGongAn /> </div> </div> {/* UV 隐藏容器 */} <div id="busuanzi_container_site_uv" style={{ display: "none" }}> <span id="busuanzi_value_site_uv"></span> </div> </div> </footer>
+  );
+};
 
-export default Footer
+export default Footer;
